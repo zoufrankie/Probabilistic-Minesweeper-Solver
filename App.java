@@ -16,12 +16,10 @@ public class App {
             // ---- STAGE 3: probabilistic fallback ----
             // Only fires when stages 1 and 2 found nothing.
             // guess() re-checks; if it can't help either, it returns false.
-            if (!computer.step()) {
-                computer.guess();
-            }
+            computer.guess();
 
             ticker++;
-            Thread.sleep(1000);
+            Thread.sleep(500);
         }
     }
 }
