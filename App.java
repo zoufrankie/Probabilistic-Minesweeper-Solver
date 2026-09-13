@@ -1,24 +1,18 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        //Game game = new Game();
+while (true) {
+    boolean changed = false;
 
-        Computer computer = new Computer();
+    int f0 = totalFlags;
+    int r0 = countRevealed();
+    computer.findBombs();
+    computer.clearTiles();
+    if (ticker % 4 == 3) computer.setTheories();
+    if (totalFlags != f0 || countRevealed() != r0) changed = true;
 
-        int ticker = 0;
-
-        while (true) {
-            computer.findBombs();
-            computer.clearTiles();
-
-            if (ticker % 4 == 3) {
-                computer.setTheories();
-            }
-
-            // After theories (and every cycle), fall back to probability
-            computer.probability(computer.edgeTiles());
-
-            ticker++;
-            Thread.sleep(1000);
-        }
+    if (!changed) {
+        computer.probability(computer.edgeTiles());
+        computer.guess();
     }
+
+    ticker++;
+    Thread.sleep(500);
 }
