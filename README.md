@@ -205,4 +205,5 @@ To change solver pacing, adjust the `Thread.sleep(...)` in `App.java` and the
 - Headless mode for batch runs and solver win-rate statistics
 - Move-count and win-rate tracking per game
 - Difficulty selection and a "new game" reset wired to the solver
+- Monte Carlos Simulation, reducing processing power
 
